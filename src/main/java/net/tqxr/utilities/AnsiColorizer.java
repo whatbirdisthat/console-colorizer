@@ -1,4 +1,4 @@
-package net.tqxr.utilities
+package net.tqxr.utilities;
 
 public class AnsiColorizer {
     public final static String RESET = (char) 27 + "[0m";
