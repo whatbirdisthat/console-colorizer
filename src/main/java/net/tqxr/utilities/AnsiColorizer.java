@@ -40,7 +40,7 @@ public class AnsiColorizer {
             return this;
         }
 
-        public AsciiCode reset() {
+        AsciiCode reset() {
             background = -1;
             bold = -1;
             underline = -1;
