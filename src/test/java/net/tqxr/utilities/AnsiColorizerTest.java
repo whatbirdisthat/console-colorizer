@@ -15,7 +15,7 @@ public class AnsiColorizerTest {
                         + (char) 27
                         + "[31m"
                         + "a test"
-                        + (char)27
+                        + (char) 27
                         + "[0m";
 
         String actual = String.format(
@@ -29,4 +29,39 @@ public class AnsiColorizerTest {
 
     }
 
+
+    @Test
+    public void willResetAttributesAfterUse() {
+        String expected = (char) 27
+                + "[31;4m"
+                + "UNDERLINE ... "
+                + (char) 27
+                + "[0m"
+                + "NO UNDERLINE"
+                + (char) 27
+                + "[0m";
+
+        String actual = RED.underline()
+                + "UNDERLINE ... "
+                + RESET
+                + "NO UNDERLINE"
+                + RESET;
+
+        assertThat(actual)
+                .isEqualTo(expected);
+
+        String expectedPlainRed = (char) 27
+                + "[31m"
+                + "PLAIN_RED"
+                + (char) 27
+                + "[0m";
+
+        String actualPlainRed = RED
+                + "PLAIN_RED"
+                + RESET;
+
+        assertThat(actualPlainRed)
+                .isEqualTo(expectedPlainRed);
+
+    }
 }
