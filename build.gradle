@@ -30,3 +30,10 @@ sourceSets {
         }
     }
 }
+
+test {
+    testLogging {
+        events 'PASSED', 'FAILED', 'SKIPPED'
+        outputs.upToDateWhen { false }
+    }
+}
