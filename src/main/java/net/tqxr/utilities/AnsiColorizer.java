@@ -40,7 +40,7 @@ public class AnsiColorizer {
             return this;
         }
 
-        public AsciiCode reset() {
+        AsciiCode reset() {
             background = -1;
             bold = -1;
             underline = -1;
@@ -51,7 +51,7 @@ public class AnsiColorizer {
         public String toString() {
 
             StringBuilder outputString = new StringBuilder();
-            outputString.append((char)27);
+            outputString.append((char) 27);
             outputString.append("[3").append(foreground);
 
             if (background != -1) {
